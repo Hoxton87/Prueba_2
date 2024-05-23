@@ -1,0 +1,84 @@
+/* Estilos generales */
+body {
+  background-color: #f7faf7; /* Cambio a un tono de verde pastel más suave */
+  color: #333; /* Negro suave para el texto */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Carrusel */
+.carousel-inner {
+  border: 5px solid #cde8d1; /* Borde verde pastel */
+}
+
+.carousel-caption {
+  background-color: rgba(205, 232, 209, 0.9); /* Aumento de opacidad para mayor legibilidad */
+  color: #264d36; /* Texto verde más oscuro para mejor contraste */
+  text-align: center; /* Centra el texto */
+  padding: 20px; /* Ajuste del espaciado interno */
+}
+
+.carousel-caption p {
+  color: #444; /* Texto más oscuro */
+}
+
+.carousel-caption a.btn-primary {
+  background-color: #a2d4af; /* Botón verde pastel */
+  border: none;
+}
+
+.carousel-caption a.btn-primary:hover {
+  background-color: #8cbf99; /* Botón verde pastel al pasar el mouse */
+}
+
+/* Ajustes de imagen en el carrusel */
+.carousel-inner img {
+  max-width: 100%; /* Ajusta el tamaño máximo de las imágenes al contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+}
+
+/* Ajustes de diseño para los controles del carrusel */
+.carousel-control-prev, .carousel-control-next {
+  background-color: rgba(205, 232, 209, 0.9); /* Fondo con transparencia */
+  width: 5%; /* Ancho ajustado para los controles */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: #264d36; /* Color de flecha verde más oscuro */
+}
+
+/* Ajustes para el indicador de diapositivas */
+.carousel-indicators {
+  bottom: 20px; /* Ajuste la posición vertical */
+}
+
+/* Ajustes de tamaño para el carrusel en la página de inicio */
+#carouselExampleIndicators {
+  max-width: 100%; /* Establece el ancho máximo del carrusel */
+}
+
+/* Estilos para la sección Nosotros */
+body {
+  background-color: #f7faf7;
+  color: #333;
+  font-family: Arial, sans-serif;
+  padding-top: 50px;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+p, h1 {
+  text-align: center;
+}
+footer {
+  background-color: #cde8d1;
+  padding: 20px 0;
+  text-align: center;
+  color: #333;
+}
+footer a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+}
