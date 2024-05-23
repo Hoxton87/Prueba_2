@@ -26,22 +26,23 @@ Instrucciones para configurar el proyecto localmente.
 
 ## Estructura del Proyecto
 
-tu-repositorio/
-├── css/
-│   └── style
-├── images/
-│   └── imagenes
-├── js/
-│   └── script
-├── json/
-│   ├── organizaciones
-│   └── productos
-├── contacto
-├── fonacionesm
-├── indexm
-├── inicio
-├── nosotros
-├── tienda
+   tu-repositorio/
+  ├── css/
+  │   └── style
+  ├── images/
+  │   └── imagenes
+  ├── js/
+  │   └── script
+  ├── json/
+  │   ├── organizaciones
+  │   └── productos
+  ├── contacto
+  ├── fonacionesm
+  ├── indexm
+  ├── inicio
+  ├── nosotros
+  ├── tienda
+
 
 ## Tecnologías Utilizadas
 Lista de tecnologías y herramientas utilizadas en el proyecto.
