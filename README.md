@@ -8,7 +8,7 @@ Pagina de compras para productos de mascotas,usando HTML, CSS, JQueri, elementos
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas)
 - [Contribuir](#contribuir)
-- [Licencia](#licencia)
+
 
 ## Instalación
 
@@ -63,7 +63,6 @@ Haz tus cambios (git commit -am 'Añadir nueva funcionalidad').
 Sube tus cambios (git push origin feature/nueva-funcionalidad).
 Abre un Pull Request.
 
-## Licencia
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+
 
 
