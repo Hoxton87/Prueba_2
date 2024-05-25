@@ -5,9 +5,9 @@ $(document).ready(function () {
             if (status == "error") {
                 $('#content').html("<p>Error al cargar el contenido. Por favor, inténtelo de nuevo.</p>");
             } else {
-                if (page == "tienda.html") {
+                if (page === "tienda.html") {
                     loadProductos();
-                } else if (page == "donaciones.html") {
+                } else if (page === "donaciones.html") {
                     loadOrganizaciones();
                 }
             }
@@ -18,10 +18,13 @@ $(document).ready(function () {
     loadContent('inicio.html');
 
     // Manejar clics en los enlaces del menú y en el carrusel
-    $('nav a, #carouselExampleIndicators a').click(function (e) {
+    // Usamos $(document).on('click', ...) para manejar eventos de clic en elementos dinámicos
+    $(document).on('click', 'nav a, #carouselExampleIndicators a', function (e) {
         e.preventDefault();
         var page = $(this).attr('href');
-        loadContent(page);
+        if (page) {
+            loadContent(page); // Cargar la página correspondiente al href del enlace
+        }
     });
 
     // Función para cargar productos desde un archivo JSON
@@ -38,7 +41,7 @@ $(document).ready(function () {
                     </div>
                 </div>`;
             });
-            $('#productos').html(productosHtml);
+            $('#productos').html(productosHtml); // Insertar los productos en el contenedor con id "productos"
         });
     }
 
@@ -52,7 +55,7 @@ $(document).ready(function () {
                     <p>${organizacion.nombre}</p>
                 </div>`;
             });
-            $('#galeria').html(galeriaHtml);
+            $('#galeria').html(galeriaHtml); // Insertar las organizaciones en el contenedor con id "galeria"
         });
 
         // Mostrar descripción en modal
@@ -60,9 +63,7 @@ $(document).ready(function () {
             var button = $(event.relatedTarget); // Botón que activó el modal
             var descripcion = button.data('descripcion'); // Extraer la información de los atributos de datos
             var modal = $(this);
-            modal.find('.modal-body').text(descripcion);
+            modal.find('.modal-body').text(descripcion); // Insertar la descripción en el cuerpo del modal
         });
     }
-
-
 });
