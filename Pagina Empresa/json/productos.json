@@ -1,74 +1,74 @@
 {
   "categories": [
     {
-      "idCategory": "1",
-      "strCategory": "idmascota",
+      "idCategory": "idmascota",
+      "strCategory": "Identificacion mascota elegante",
       "strCategoryThumb": "https://i.pinimg.com/736x/64/00/20/64002036fce8d81fb1bac5e00df880f7.jpg",
-      "strCategoryDescription": "Identificacion elegante para mascota"
+      "strCategoryDescription": "Identificacion elegante para mascota, ahora tu mascota puede verse con un estilo aesthetic"
     },
     {
-      "idCategory": "2",
-      "strCategory": "idmascota",
+      "idCategory": "idmascota",
+      "strCategory": "Identificacion para gato",
       "strCategoryThumb": "https://i.pinimg.com/736x/ad/49/e6/ad49e6a14219c1a7348918577af83e22.jpg",
       "strCategoryDescription": "Identificaion para collar de gatos (sin cascabel)"
     },
     {
-      "idCategory": "3",
-      "strCategory": "idmascota",
+      "idCategory": "idmascota",
+      "strCategory": "Identificacion para perro",
       "strCategoryThumb": "https://i.pinimg.com/736x/7f/35/da/7f35dab0f225e7de7aa1067d78ccce49.jpg",
       "strCategoryDescription": "Identificaion para collar de perros"
     },
     {
-      "idCategory": "4",
-      "strCategory": "idmascota",
+      "idCategory": "idmascota",
+      "strCategory": "Carnet identificatorio para mascotas",
       "strCategoryThumb": "https://i.pinimg.com/736x/61/25/43/612543d8022af526786dce01a0dd0f2b.jpg",
-      "strCategoryDescription": "Carnet identificador para mascota"
+      "strCategoryDescription": "Carnet identificador para mascota y así puede hacer sus propios tramites"
     },
     {
-      "idCategory": "5",
-      "strCategory": "correa",
+      "idCategory": "correa",
+      "strCategory": "Correa color Verde",
       "strCategoryThumb": "https://i.pinimg.com/736x/80/6f/cd/806fcd5ad6cb6fbc2583d03d2cf94701.jpg",
       "strCategoryDescription": "Hermosa y ergonomica correa para perro color verde"
     },
     {
-      "idCategory": "6",
-      "strCategory": "correa",
+      "idCategory": "correa",
+      "strCategory": "Correa color Rojo",
       "strCategoryThumb": "https://i.pinimg.com/736x/80/6f/cd/806fcd5ad6cb6fbc2583d03d2cf94701.jpg",
       "strCategoryDescription": "Hermosa y ergonomica correa para perro color roja"
     },
     {
-      "idCategory": "7",
-      "strCategory": "correa",
+      "idCategory": "correa",
+      "strCategory": "cCorrea color Azul",
       "strCategoryThumb": "https://i.pinimg.com/736x/9d/80/81/9d80812409d375cd3c5a9b659d419ff7.jpg",
       "strCategoryDescription": "Hermosa y ergonomica correa para perro color azul"
     },
     {
-      "idCategory": "8",
-      "strCategory": "correa",
+      "idCategory": "correa",
+      "strCategory": "Correa color Amarillo",
       "strCategoryThumb": "https://i.pinimg.com/736x/f9/6c/c4/f96cc4976e8b8633940df1e6d143fe3d.jpg",
       "strCategoryDescription": "Hermosa y ergonomica correa para perro color amarilla"
     },
     {
-      "idCategory": "9",
-      "strCategory": "bandana",
+      "idCategory": "bandana",
+      "strCategory": "Bandana color Verde",
       "strCategoryThumb": "https://i.pinimg.com/736x/95/90/0d/95900d32c4530f0fb5f59e4245ccefde.jpg",
       "strCategoryDescription": "Ergonomica bandana para la personalidad y estilo de tu mascota color verde"
     },
     {
-      "idCategory": "10",
-      "strCategory": "bandana",
+      "idCategory": "bandana",
+      "strCategory": "Bandana color Rojo",
       "strCategoryThumb": "https://i.pinimg.com/736x/fa/73/32/fa733253b400fdc8b24fc17c802700a9.jpg",
       "strCategoryDescription": "Ergonomica bandana para la personalidad y estilo de tu mascota color rojo"
     },
     {
-      "idCategory": "11",
-      "strCategory": "bandana",
+      "idCategory": "bandana",
+      "strCategory": "Bandana color Azul",
       "strCategoryThumb": "https://i.pinimg.com/736x/03/95/f9/0395f990a3657b39c86d9fa886d1cf95.jpg",
       "strCategoryDescription": "Ergonomica bandana para la personalidad y estilo de tu mascota color azul"
     },
     {
-      "idCategory": "12",
-      "strCategory": "bandana",
+      "idCategory": "bandana",
+      "strCategory": "Bandana color amarillo",
       "strCategoryThumb": "https://i.pinimg.com/736x/1d/4d/ac/1d4dace98119421a389246fb13723647.jpg",
       "strCategoryDescription": "Ergonomica bandana para la personalidad y estilo de tu mascota color amarillo"
     }
