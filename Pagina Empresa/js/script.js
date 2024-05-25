@@ -5,9 +5,9 @@ $(document).ready(function () {
             if (status == "error") {
                 $('#content').html("<p>Error al cargar el contenido. Por favor, inténtelo de nuevo.</p>");
             } else {
-                if (page === "tienda.html") {
+                if (page == "tienda.html") {
                     loadProductos();
-                } else if (page === "donaciones.html") {
+                } else if (page == "donaciones.html") {
                     loadOrganizaciones();
                 }
             }
@@ -18,32 +18,38 @@ $(document).ready(function () {
     loadContent('inicio.html');
 
     // Manejar clics en los enlaces del menú y en el carrusel
-    // Usamos $(document).on('click', ...) para manejar eventos de clic en elementos dinámicos
-    $(document).on('click', 'nav a, #carouselExampleIndicators a', function (e) {
+    $('nav a, #carouselExampleIndicators a').click(function (e) {
         e.preventDefault();
         var page = $(this).attr('href');
-        if (page) {
-            loadContent(page); // Cargar la página correspondiente al href del enlace
-        }
+        loadContent(page);
     });
 
     // Función para cargar productos desde un archivo JSON
     function loadProductos() {
+        // Obtener los datos del archivo JSON 'productos.json'
         $.getJSON('json/productos.json', function (data) {
+            // Crear una variable para almacenar el HTML de los productos
             let productosHtml = '';
-            $.each(data, function (key, producto) {
+    
+            // Iterar sobre cada categoría en el array 'categories' del objeto JSON
+            $.each(data.categories, function (key, producto) {
+                // Generar el HTML de una tarjeta ('card') para cada categoría
                 productosHtml += `<div class="card" style="width: 18rem;">
-                    <img src="${producto.imagen}" class="card-img-top" alt="${producto.nombre}">
+                    <img src="${producto.strCategoryThumb}" class="card-img-top" alt="${producto.strCategory}">
                     <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">${producto.descripcion}</p>
+                        <h5 class="card-title">${producto.strCategory}</h5>
+                        <p class="card-text">${producto.strCategoryDescription}</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>`;
             });
-            $('#productos').html(productosHtml); // Insertar los productos en el contenedor con id "productos"
+    
+            // Insertar el HTML generado en el contenedor con id="productos" en la página
+            $('#productos').html(productosHtml);
         });
     }
+    
+    
 
     // Función para cargar organizaciones de donación desde un archivo JSON
     function loadOrganizaciones() {
@@ -55,7 +61,7 @@ $(document).ready(function () {
                     <p>${organizacion.nombre}</p>
                 </div>`;
             });
-            $('#galeria').html(galeriaHtml); // Insertar las organizaciones en el contenedor con id "galeria"
+            $('#galeria').html(galeriaHtml);
         });
 
         // Mostrar descripción en modal
@@ -63,7 +69,9 @@ $(document).ready(function () {
             var button = $(event.relatedTarget); // Botón que activó el modal
             var descripcion = button.data('descripcion'); // Extraer la información de los atributos de datos
             var modal = $(this);
-            modal.find('.modal-body').text(descripcion); // Insertar la descripción en el cuerpo del modal
+            modal.find('.modal-body').text(descripcion);
         });
     }
+
+
 });
