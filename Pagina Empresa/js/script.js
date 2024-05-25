@@ -18,10 +18,12 @@ $(document).ready(function () {
     loadContent('inicio.html');
 
     // Manejar clics en los enlaces del menú y en el carrusel
-    $('nav a, #carouselExampleIndicators a').click(function (e) {
+    $(document).on('click', 'nav a, #carouselExampleIndicators a', function (e) {
         e.preventDefault();
         var page = $(this).attr('href');
-        loadContent(page);
+        if (page) {
+            loadContent(page); // Cargar la página correspondiente al href del enlace
+        }
     });
 
     // Función para cargar productos desde un archivo JSON
@@ -32,7 +34,9 @@ $(document).ready(function () {
             let productosHtml = '';
     
             // Iterar sobre cada categoría en el array 'categories' del objeto JSON
-                
+              
+
+
             $.each(data.categories, function (key, producto) {
                 productosHtml += `<div class="card" style="width: 18rem;">
                     <img src="${producto.strCategoryThumb}" class="card-img-top" alt="${producto.strCategory}">
@@ -65,7 +69,7 @@ $(document).ready(function () {
                     </div>
                 </div>`;
             });
-                   
+
     
             // Insertar el HTML generado en el contenedor con id="productos" en la página
             $('#productos').html(productosHtml);
