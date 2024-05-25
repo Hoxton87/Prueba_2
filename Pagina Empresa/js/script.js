@@ -32,17 +32,40 @@ $(document).ready(function () {
             let productosHtml = '';
     
             // Iterar sobre cada categoría en el array 'categories' del objeto JSON
+                
             $.each(data.categories, function (key, producto) {
-                // Generar el HTML de una tarjeta ('card') para cada categoría
                 productosHtml += `<div class="card" style="width: 18rem;">
                     <img src="${producto.strCategoryThumb}" class="card-img-top" alt="${producto.strCategory}">
                     <div class="card-body">
                         <h5 class="card-title">${producto.strCategory}</h5>
-                        <p class="card-text">${producto.strCategoryDescription}</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                    
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal${key}">
+                        Ver Producto
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal${key}" tabindex="-1" aria-labelledby="exampleModalLabel${key}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fs-5" id="exampleModalLabel${key}">${producto.strCategory}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="${producto.strCategoryThumb}" class="img-fluid" alt="${producto.strCategory}">
+                                    <p>${producto.strCategoryDescription}</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>`;
             });
+                   
     
             // Insertar el HTML generado en el contenedor con id="productos" en la página
             $('#productos').html(productosHtml);
@@ -64,6 +87,9 @@ $(document).ready(function () {
             $('#galeria').html(galeriaHtml);
         });
 
+
+
+        
         // Mostrar descripción en modal
         $('#orgModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); // Botón que activó el modal
