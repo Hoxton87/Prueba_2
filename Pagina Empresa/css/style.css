@@ -113,3 +113,13 @@ footer a {
 #categorias .nav-link:focus-visible {
   box-shadow: none;
 }
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+}
+
