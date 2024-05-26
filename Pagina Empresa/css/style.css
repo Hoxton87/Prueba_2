@@ -82,3 +82,34 @@ footer a {
   font-weight: bold;
   margin-right: 10px;
 }
+/* Estilo personalizado para los botones del submenú */
+#categorias .nav-link {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(209,213,219);
+  border-radius: .5rem;
+  color: #111827;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+  margin-right: 0.5rem; /* Espacio entre los botones */
+}
+
+#categorias .nav-link:hover {
+  background-color: #f9fafb;
+}
+
+#categorias .nav-link:focus {
+  outline: 2px solid rgba(0,0,0,0.1);
+  outline-offset: 2px;
+}
+
+#categorias .nav-link:focus-visible {
+  box-shadow: none;
+}

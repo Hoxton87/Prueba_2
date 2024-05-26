@@ -18,7 +18,7 @@ $(document).ready(function () {
     loadContent('inicio.html');
 
     // Manejar clics en los enlaces del menú y en el carrusel
-    $(document).on('click', 'nav a, #carouselExampleIndicators a', function (e) {
+    $(document).on('click', 'nav a:not([data-categoria]), #carouselExampleIndicators a', function (e) {
         e.preventDefault();
         var page = $(this).attr('href');
         if (page) {
@@ -30,53 +30,68 @@ $(document).ready(function () {
     function loadProductos() {
         // Obtener los datos del archivo JSON 'productos.json'
         $.getJSON('json/productos.json', function (data) {
-            // Crear una variable para almacenar el HTML de los productos
+            let categoriasHtml = '';
             let productosHtml = '';
-    
-            // Iterar sobre cada categoría en el array 'categories' del objeto JSON
-              
-
-
+        
+            // Almacena las categorías únicas
+            let categorias = {};
+        
             $.each(data.categories, function (key, producto) {
-                productosHtml += `<div class="card" style="width: 18rem;">
+                // Añadir la categoría al objeto de categorías si no existe
+                if (!categorias[producto.idCategory]) {
+                    categorias[producto.idCategory] = true;
+                    categoriasHtml += `<a class="nav-link" href="#" data-categoria="${producto.idCategory}">${producto.idCategory}</a>`;
+                }
+        
+                // Añadir productos
+                productosHtml += `<div class="card mb-3" style="width: 18rem;" data-categoria="${producto.idCategory}">
                     <img src="${producto.strCategoryThumb}" class="card-img-top" alt="${producto.strCategory}">
                     <div class="card-body">
                         <h5 class="card-title">${producto.strCategory}</h5>
-                    </div>
-                    
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal${key}">
-                        Ver Producto
-                    </button>
-                    
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal${key}" tabindex="-1" aria-labelledby="exampleModalLabel${key}" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title fs-5" id="exampleModalLabel${key}">${producto.strCategory}</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <img src="${producto.strCategoryThumb}" class="img-fluid" alt="${producto.strCategory}">
-                                    <p>${producto.strCategoryDescription}</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal${key}">
+                            Ver Producto
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal${key}" tabindex="-1" aria-labelledby="exampleModalLabel${key}" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fs-5" id="exampleModalLabel${key}">${producto.strCategory}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src="${producto.strCategoryThumb}" class="img-fluid" alt="${producto.strCategory}">
+                                        <p>${producto.strCategoryDescription}</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-custom" data-bs-dismiss="modal">Cerrar</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>`;
             });
-
-    
-            // Insertar el HTML generado en el contenedor con id="productos" en la página
+        
+            $('#categorias').html(categoriasHtml);
             $('#productos').html(productosHtml);
+        
+            // Manejar el filtro por categoría
+            $('#categorias').on('click', 'a', function (e) {
+                e.preventDefault(); // Evitar la acción predeterminada del enlace
+                const categoriaSeleccionada = $(this).data('categoria');
+                
+                $('.card').hide();
+                $(`.card[data-categoria="${categoriaSeleccionada}"]`).show();
+            });
+        
+            // Mostrar todos los productos al inicio
+            $('.card').show();
         });
     }
-    
-    
 
     // Función para cargar organizaciones de donación desde un archivo JSON
     function loadOrganizaciones() {
@@ -91,9 +106,6 @@ $(document).ready(function () {
             $('#galeria').html(galeriaHtml);
         });
 
-
-
-        
         // Mostrar descripción en modal
         $('#orgModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); // Botón que activó el modal
@@ -102,6 +114,4 @@ $(document).ready(function () {
             modal.find('.modal-body').text(descripcion);
         });
     }
-
-
 });
