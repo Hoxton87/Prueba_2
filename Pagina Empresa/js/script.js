@@ -65,6 +65,7 @@ $(document).ready(function () {
                                     <div class="modal-body">
                                         <img src="${producto.strCategoryThumb}" class="img-fluid" alt="${producto.strCategory}">
                                         <p>${producto.strCategoryDescription}</p>
+                                        <h2>${producto.precioProducto}</h2>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn-custom" data-bs-dismiss="modal">Cerrar</button>
