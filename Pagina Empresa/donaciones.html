@@ -2,3 +2,86 @@
     <h2>Donaciones</h2>
     <div id="galeria"></div>
 </div>
+<div id="donaciones" class="container my-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre *</label>
+                <input type="text" class="form-control" id="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo Electrónico *</label>
+                <input type="email" class="form-control" id="correo" required>
+            </div>
+            <div class="mb-3">
+                <label for="monto" class="form-label">Monto de la Donación *</label>
+                <input type="number" class="form-control" id="monto" required>
+            </div>
+            <button type="button" class="btn btn-primary" id="btnSiguiente">Siguiente</button>
+            <form id="pagoForm" style="display: none;">
+                <div class="mb-3">
+                    <label for="nombreCompleto" class="form-label">Nombre Completo *</label>
+                    <input type="text" class="form-control" id="nombreCompleto" required>
+                </div>
+                <div class="mb-3">
+                    <label for="numTarjeta" class="form-label">Número de Tarjeta *</label>
+                    <input type="text" class="form-control" id="numTarjeta" required>
+                </div>
+                <div class="mb-3">
+                    <label for="fechaVencimiento" class="form-label">Fecha de Vencimiento *</label>
+                    <input type="text" class="form-control" id="fechaVencimiento" placeholder="MM/AA" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cvv" class="form-label">CVV *</label>
+                    <input type="text" class="form-control" id="cvv" required>
+                </div>
+                <button type="button" class="btn btn-success" id="btnDonar">Donar</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-4">Acerca de Nosotros</h2>
+            <p id="acercaDeNosotros">
+                <!-- La descripción de la organización se cargará aquí -->
+            </p>
+        </div>
+    </div>
+    <div id="galeria" class="row mt-4">
+        <!-- Las organizaciones se cargarán aquí -->
+    </div>
+</div>
+
+<!-- Modal para la organización -->
+<div class="modal fade" id="orgModal" tabindex="-1" aria-labelledby="orgModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orgModalLabel">Descripción de la Organización</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- La descripción se cargará aquí -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para el boleta de donación -->
+<div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ticketModalLabel">Ticket de Donación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="ticketContent">
+                <!-- El contenido del boleta se cargará aquí -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
