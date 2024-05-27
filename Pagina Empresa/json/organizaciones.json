@@ -1,0 +1,27 @@
+{
+    "fundaciones": [
+      {
+        "nombreFundacion": "Fundacion Siete vidas poder felino",
+        "descripcionFundacion": "Rescatamos Gatos en situaciones difíciles y los preparamos para encontrar un nuevo hogar. ¿Listo para hacer una diferencia? Adopta a un gato rescatado y disfruta de su lealtad.",
+        "imagenFundacion": "https://i.pinimg.com/736x/c7/d8/0e/c7d80e2cccbe2fa274c2c73f56ef93f2.jpg"
+      },
+      {
+        "nombreFundacion": "Fundacion Callejeritos de la VEGA",
+        "descripcionFundacion": "Somos una organización comunitaria cuyo objetivo es lograr leyes de Protección Animal, educar para el buen trato y denunciar el maltrato y abandono animal. Realizamos un trabajo voluntario en la Vega Central ubicada en la comuna de Recoleta, no sólo por los animales sino también por las personas.",
+        "imagenFundacion": "https://i.pinimg.com/736x/67/b7/d8/67b7d890951a882b97f8bf331bd69343.jpg"
+      },
+
+      {
+        "nombreFundacion": "Fundacion adopta",
+        "descripcionFundacion": "Es una organización sin fines de lucro, dedicada al rescate, rehabilitación y reubicación de gatos abandonados. Realiza, operativos de esterilización y jornadas de adopción todas las semanas. Todos los gatos que entrega están esterilizados desde los dos meses de edad. Mantiene dos albergues de gatos y una red de hogares temporales, que acogen a los gatos rescatados en espera de su adopción definitiva.",
+        "imagenFundacion": "https://i.pinimg.com/736x/33/8e/64/338e640910232a819d8e3a09a659a1e4.jpg"
+      },
+
+      {
+        "nombreFundacion": "Fundacion Chile mestizo",
+        "descripcionFundacion": "Fundacion chile mestizo nace como el sueño de dar una segunda oportunidad a miles de perros y gatos que sufren abandono, hambre y enfermedades en las calles de nuestra ciudad, nace de la unión de personas con enormes ganas de construir el país en el que queremos vivir.",
+        "imagenFundacion": "https://i.pinimg.com/736x/24/fc/b0/24fcb05b77430cc065fa37c54cacdd55.jpg"
+      }
+    ]
+  }
+  
