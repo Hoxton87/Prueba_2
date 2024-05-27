@@ -8,7 +8,7 @@ $(document).ready(function () {
                 if (page == "tienda.html") {
                     loadProductos();
                 } else if (page == "donaciones.html") {
-                    loadOrganizaciones();
+                    loadFundaciones();
                 }
             }
         });
@@ -28,33 +28,24 @@ $(document).ready(function () {
 
     // Función para cargar productos desde un archivo JSON
     function loadProductos() {
-        // Obtener los datos del archivo JSON 'productos.json'
         $.getJSON('json/productos.json', function (data) {
             let categoriasHtml = '';
             let productosHtml = '';
-        
-            // Almacena las categorías únicas
             let categorias = {};
-        
+
             $.each(data.categories, function (key, producto) {
-                // Añadir la categoría al objeto de categorías si no existe
                 if (!categorias[producto.idCategory]) {
                     categorias[producto.idCategory] = true;
                     categoriasHtml += `<a class="nav-link" href="#" data-categoria="${producto.idCategory}">${producto.idCategory}</a>`;
                 }
-        
-                // Añadir productos
-                productosHtml += `<div class="card mb-3" style="width: 18rem;" data-categoria="${producto.idCategory}">
+
+                productosHtml += `<div class="card mb-3 col-md-6" style="width: 18rem;" data-categoria="${producto.idCategory}">
                     <img src="${producto.strCategoryThumb}" class="card-img-top" alt="${producto.strCategory}">
                     <div class="card-body">
                         <h5 class="card-title">${producto.strCategory}</h5>
-                        
-                        <!-- Button trigger modal -->
                         <button type="button" class="btn-custom" data-bs-toggle="modal" data-bs-target="#exampleModal${key}">
                             Ver Producto
                         </button>
-                        
-                        <!-- Modal -->
                         <div class="modal fade" id="exampleModal${key}" tabindex="-1" aria-labelledby="exampleModalLabel${key}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -76,43 +67,58 @@ $(document).ready(function () {
                     </div>
                 </div>`;
             });
-        
+
             $('#categorias').html(categoriasHtml);
             $('#productos').html(productosHtml);
-        
-            // Manejar el filtro por categoría
+
             $('#categorias').on('click', 'a', function (e) {
-                e.preventDefault(); // Evitar la acción predeterminada del enlace
+                e.preventDefault();
                 const categoriaSeleccionada = $(this).data('categoria');
-                
                 $('.card').hide();
                 $(`.card[data-categoria="${categoriaSeleccionada}"]`).show();
             });
-        
-            // Mostrar todos los productos al inicio
+
             $('.card').show();
         });
     }
 
-    // Función para cargar organizaciones de donación desde un archivo JSON
-    function loadOrganizaciones() {
+    // Función para cargar fundaciones desde un archivo JSON
+    function loadFundaciones() {
         $.getJSON('json/organizaciones.json', function (data) {
             let galeriaHtml = '';
-            $.each(data, function (key, organizacion) {
-                galeriaHtml += `<div class="col-md-4">
-                    <img src="${organizacion.imagen}" class="img-fluid" alt="${organizacion.nombre}" data-bs-toggle="modal" data-bs-target="#orgModal" data-descripcion="${organizacion.descripcion}">
-                    <p>${organizacion.nombre}</p>
+            $.each(data.fundaciones, function (key, fundacion) {
+                galeriaHtml += `<div class="col-md-6 mb-4">
+                    <div class="card">
+                        <img src="${fundacion.imagenFundacion}" class="img-fluid card-img-top" alt="${fundacion.nombreFundacion}" data-bs-toggle="modal" data-bs-target="#orgModal" data-descripcion="${fundacion.descripcionFundacion}">
+                        <div class="card-body">
+                            <h5 class="card-title">${fundacion.nombreFundacion}</h5>
+                            <button class="btn btn-primary subscribe-btn" data-fundacion="${fundacion.nombreFundacion}">Suscribirse</button>
+                        </div>
+                    </div>
                 </div>`;
             });
             $('#galeria').html(galeriaHtml);
         });
 
-        // Mostrar descripción en modal
         $('#orgModal').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget); // Botón que activó el modal
-            var descripcion = button.data('descripcion'); // Extraer la información de los atributos de datos
+            var button = $(event.relatedTarget);
+            var descripcion = button.data('descripcion');
             var modal = $(this);
             modal.find('.modal-body').text(descripcion);
         });
+
+        $('#galeria').on('click', '.subscribe-btn', function () {
+            var fundacion = $(this).data('fundacion');
+            var donacion = prompt('Ingrese la cantidad de su donación:');
+            if (donacion) {
+                alert(`Gracias por su donación de ${donacion} a la ${fundacion}. Recibirá un 5% de descuento en su próxima compra.`);
+                // Aquí puedes agregar el código para enviar la donación a la fundación.
+            }
+        });
+    }
+
+    // Inicializar la carga de fundaciones si la página actual es donaciones.html
+    if ($('#galeria').length) {
+        loadFundaciones();
     }
 });
