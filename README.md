@@ -39,8 +39,8 @@ tu-repositorio/
 │   ├── organizaciones
 │   └── productos
 ├── contacto
-├── fonacionesm
-├── indexm
+├── fundaciones
+├── index
 ├── inicio
 ├── nosotros
 ├── tienda
